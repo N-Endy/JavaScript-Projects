@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            width: 100vw;
+            height: 100vh;
+            background: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: #666;
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+    
+
+    <div id="container">
+        <h1 class="text"></p>
+        <a href="#" class="btn">Click Me</a>
+    </div>
+
+
+    <script>
+        let container = document.querySelector('#container');
+        let button = document.querySelector('.btn');
+        let text = document.querySelector('.text');
+
+        let color = ['blue', 'green', 'white', 'black', 'orange', 'pink', 'purple'];
+
+        function changeBackground() {
+            let index = parseInt(Math.random() * color.length);
+            container.style.backgroundColor = color[index];
+            button.innerHTML = index;
+        }
+
+        button.addEventListener('click', changeBackground);
+    </script>
+</body>
+</html>

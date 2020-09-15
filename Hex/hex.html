@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex Number</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            width: 100vw;
+            height: 100vh;
+            background: yellow;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            margin-top: 1rem;
+            background: #666;
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 class="text">HEX COLOR:</h1>
+        <a href="#" class="btn">Click Me</a>
+    </div>
+
+
+    <script>
+        let container = document.querySelector('#container');
+        let button = document.querySelector('.btn');
+        let text = document.querySelector('.text');
+
+        function changeRandomHex() {
+            let hexColor = [1, 2, 3, 4, 5, 6,'a', 'b', 'c', 'd', 'f'];
+            let hex = '#';
+
+            for (let i=0; i<7; i++) {
+                hex += hexColor[Math.floor(Math.random() * hexColor.length)];
+                container.style.backgroundColor = hex;
+            }
+            text.textContent = `HEX COLOR: ${hex}`;
+        }
+
+        button.addEventListener('click', changeRandomHex)
+
+    </script>
+</body>
+</body>
+</html>

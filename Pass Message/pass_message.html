@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass Message</title>
+
+    <style>
+        body {
+            background: #ab4bd1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #container {
+            background: #f4f4f4;
+            width: 60%;
+            border-radius: 0.75rem;
+            margin: 10rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group .name {
+            width: 100%;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            font-size: 18px;
+        }
+
+        .form-group .submit {
+            background: #ab4bd1;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.75rem;
+            width: 8rem;
+            padding: 0.75rem;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .form-group .submit:hover {
+            color: #000;
+        }
+
+        .message {
+            color: #ab4bd1;
+            text-transform: uppercase;
+        }
+
+        .error-message {
+            background: rgb(207, 60, 60);
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>A Message You Would Like To Pass</h2>
+        <div class="form-group">
+            <input type="text" class="name" placeholder="Write Your Message" value="">
+            <input type="submit" class="submit" value="Submit">
+        </div>
+        <h2 class="error-message"></h2>
+        <h2>Last Message Delivered</h2>
+        <h2 class="message"></h2>
+    </div>
+
+
+
+    <script>
+        (function() {
+            let inputText = document.querySelector('.name');
+            let submit = document.querySelector('.submit');
+            let errorMessage = document.querySelector('.error-message')
+            let messageText = document.querySelector('.message');
+
+            function message(e) {
+                e.preventDefault();
+
+                if (inputText.value === '') {
+                    
+                    errorMessage.textContent = 'Put in Message!'
+
+                } else {
+                    messageText.textContent = inputText.value;
+                }
+
+                setTimeout(function(){
+                errorMessage.innerHTML = '';
+                }, 3000);
+                
+            }
+
+            submit.addEventListener('click', message);
+        })();
+    </script>
+</body>
+</html>
